@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import 'examples/advanced/index.dart';
+// import 'examples/advanced/index.dart';
 import 'examples/basic/index.dart';
 import 'config/agora.config.dart' as config;
 import 'components/log_sink.dart';
@@ -19,7 +19,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _data = [...basic, ...advanced];
+  final _data = [...basic];
+  // final _data = [...basic, ...advanced];
 
   bool _showPerformanceOverlay = false;
 
