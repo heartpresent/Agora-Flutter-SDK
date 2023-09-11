@@ -9,7 +9,7 @@ String get appId {
 String get token {
   // Allow pass a `token` as an environment variable with name `TEST_TOKEN` by using --dart-define
   return const String.fromEnvironment('TEST_TOKEN',
-      defaultValue: '007eJxTYEiT+PxoSeDD65f+fuVOO+7Ze/Xvqvhn9l9F7CUKas3We5QqMCSZWRgnmZkYpxpZGpokGpglmlmap6WmmaaYmqampaYkXQxan9IQyMgg6t7NzMgAgSA+C4OhkbEJAwMAF8wgxw==');
+      defaultValue: '007eJxTYOhy/8Gybx1/fYLw8jAWT9sFGl1TjW+enMbjY/rC+U7CejsFhiQzC+MkMxPjVCNLQ5NEA7NEM0vztNQ00xRT09S01JSkdZFfUxoCGRm2VG9hYmSAQBCfhcHQyNiEgQEA2ZAeHw==');
 }
 
 /// Your channel ID
@@ -20,6 +20,8 @@ String get channelId {
     defaultValue: '1234',
   );
 }
+
+const String serverUrl = "https://agora-token-service-production-bbca.up.railway.app";
 
 /// Your int user ID
 const int uid = 0;

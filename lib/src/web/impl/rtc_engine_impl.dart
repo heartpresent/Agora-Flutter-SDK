@@ -5,7 +5,6 @@ import 'dart:typed_data';
 
 import 'package:agora_rtc_engine/src/web/impl/api_types.dart';
 import 'package:agora_rtc_engine/src/web/classes.dart';
-import 'package:agora_rtc_engine/src/web/impl/media_recorder_impl.dart';
 import 'enum_converter.dart';
 import 'package:agora_rtc_engine/src/web/enums.dart';
 
@@ -16,10 +15,25 @@ import 'package:agora_rtc_engine/src/web/rtc_engine_event_handler.dart';
 import 'package:agora_rtc_engine/src/web/impl/rtc_engine_event_handler_impl.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'media_recorder_observer_impl.dart';
+import 'package:meta/meta.dart';
+
+
+@internal
+class InitializationState extends ChangeNotifier {
+  bool _isInitialized = false;
+  bool get isInitialized => _isInitialized;
+  set isInitialized(bool value) {
+    if (_isInitialized == value) {
+      return;
+    }
+
+    _isInitialized = value;
+    notifyListeners();
+  }
+}
 
 /// Implementation of [RtcEngine]
-class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
+class RtcEngineImpl implements RtcEngine {
   static const MethodChannel _methodChannel = MethodChannel('agora_rtc_engine');
   static const EventChannel _eventChannel =
       EventChannel('agora_rtc_engine/events');
@@ -39,6 +53,14 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
 
     return _instance!;
   }
+
+  InitializationState? _rtcEngineStateInternal;
+  InitializationState get _rtcEngineState {
+    _rtcEngineStateInternal ??= InitializationState();
+    return _rtcEngineStateInternal!;
+  }
+  @internal
+  bool get isInitialized => _rtcEngineState.isInitialized;
 
   final bool _subProcess;
   final String? _appGroup;
@@ -115,7 +137,6 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
             ?.process(methodName, data, buffer);
       } else {
         _instance?._handler?.process(methodName, data, buffer);
-        _instance?.getMediaRecorderObserver()?.process(methodName, data);
       }
     });
   }
@@ -163,6 +184,16 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
         }));
   }
 
+  @internal
+  void addInitializedCompletedListener(VoidCallback listener) {
+    _rtcEngineState.addListener(listener);
+  }
+
+  @internal
+  void removeInitializedCompletedListener(VoidCallback listener) {
+    _rtcEngineState.removeListener(listener);
+  }
+
   // TODO(littlegnal): Fill test
   @override
   Future<void> destroy() async {
@@ -174,7 +205,6 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
     } else {
       await _screenShareHelper?.destroy();
       _screenShareHelper = null;
-      await releaseRecorder();
       RtcChannel.destroyAll();
       _instance?._handler = null;
       _instance = null;
@@ -215,19 +245,18 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
 
   @override
   Future<void> joinChannel(
-      {String? token,
-      String? channelId,
-      String? optionalInfo,
-      int? uid,
-      ChannelMediaOptions? options}) {
+      {required String token,
+        required String channelId,
+        required int uid,
+        required ChannelMediaOptions options}) {
+
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineJoinChannel.index,
       'params': jsonEncode({
-        'token': token?.isEmpty == true ? null : token,
+        'token': token,
         'channelId': channelId,
-        'info': optionalInfo,
         'uid': uid,
-        'options': options?.toJson(),
+        'options': options.toJson(),
       }),
     });
   }
@@ -2108,6 +2137,20 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineSetVideoSource.index,
       'params': jsonEncode({}),
+    });
+  }
+
+  @override
+  Future<void> setupRemoteVideo(VideoCanvas canvas) {
+    return _invokeMethod('callApi', {
+
+    });
+  }
+
+  @override
+  Future<void> setupLocalVideo(VideoCanvas canvas) {
+    return _invokeMethod('callApi', {
+
     });
   }
 }

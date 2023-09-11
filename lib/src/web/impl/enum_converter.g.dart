@@ -15,7 +15,7 @@ AreaCodeConverter _$AreaCodeConverterFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$AreaCodeConverterToJson(AreaCodeConverter instance) =>
     <String, dynamic>{
-      'e': _$AreaCodeEnumMap[instance.e],
+      'e': _$AreaCodeEnumMap[instance.e]!,
     };
 
 const _$AreaCodeEnumMap = {
@@ -37,7 +37,7 @@ AudioCodecProfileTypeConverter _$AudioCodecProfileTypeConverterFromJson(
 Map<String, dynamic> _$AudioCodecProfileTypeConverterToJson(
         AudioCodecProfileTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioCodecProfileTypeEnumMap[instance.e],
+      'e': _$AudioCodecProfileTypeEnumMap[instance.e]!,
     };
 
 const _$AudioCodecProfileTypeEnumMap = {
@@ -55,7 +55,7 @@ AudioEqualizationBandFrequencyConverter
 Map<String, dynamic> _$AudioEqualizationBandFrequencyConverterToJson(
         AudioEqualizationBandFrequencyConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioEqualizationBandFrequencyEnumMap[instance.e],
+      'e': _$AudioEqualizationBandFrequencyEnumMap[instance.e]!,
     };
 
 const _$AudioEqualizationBandFrequencyEnumMap = {
@@ -80,7 +80,7 @@ AudioLocalErrorConverter _$AudioLocalErrorConverterFromJson(
 Map<String, dynamic> _$AudioLocalErrorConverterToJson(
         AudioLocalErrorConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioLocalErrorEnumMap[instance.e],
+      'e': _$AudioLocalErrorEnumMap[instance.e]!,
     };
 
 const _$AudioLocalErrorEnumMap = {
@@ -102,7 +102,7 @@ AudioLocalStateConverter _$AudioLocalStateConverterFromJson(
 Map<String, dynamic> _$AudioLocalStateConverterToJson(
         AudioLocalStateConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioLocalStateEnumMap[instance.e],
+      'e': _$AudioLocalStateEnumMap[instance.e]!,
     };
 
 const _$AudioLocalStateEnumMap = {
@@ -121,7 +121,7 @@ AudioFileInfoErrorConverter _$AudioFileInfoErrorConverterFromJson(
 Map<String, dynamic> _$AudioFileInfoErrorConverterToJson(
         AudioFileInfoErrorConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioFileInfoErrorEnumMap[instance.e],
+      'e': _$AudioFileInfoErrorEnumMap[instance.e]!,
     };
 
 const _$AudioFileInfoErrorEnumMap = {
@@ -138,7 +138,7 @@ AudioMixingReasonConverter _$AudioMixingReasonConverterFromJson(
 Map<String, dynamic> _$AudioMixingReasonConverterToJson(
         AudioMixingReasonConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioMixingReasonEnumMap[instance.e],
+      'e': _$AudioMixingReasonEnumMap[instance.e]!,
     };
 
 const _$AudioMixingReasonEnumMap = {
@@ -163,7 +163,7 @@ AudioMixingStateCodeConverter _$AudioMixingStateCodeConverterFromJson(
 Map<String, dynamic> _$AudioMixingStateCodeConverterToJson(
         AudioMixingStateCodeConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioMixingStateCodeEnumMap[instance.e],
+      'e': _$AudioMixingStateCodeEnumMap[instance.e]!,
     };
 
 const _$AudioMixingStateCodeEnumMap = {
@@ -182,7 +182,7 @@ AudioMixingDualMonoModeConverter _$AudioMixingDualMonoModeConverterFromJson(
 Map<String, dynamic> _$AudioMixingDualMonoModeConverterToJson(
         AudioMixingDualMonoModeConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioMixingDualMonoModeEnumMap[instance.e],
+      'e': _$AudioMixingDualMonoModeEnumMap[instance.e]!,
     };
 
 const _$AudioMixingDualMonoModeEnumMap = {
@@ -201,7 +201,7 @@ AudioOutputRoutingConverter _$AudioOutputRoutingConverterFromJson(
 Map<String, dynamic> _$AudioOutputRoutingConverterToJson(
         AudioOutputRoutingConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioOutputRoutingEnumMap[instance.e],
+      'e': _$AudioOutputRoutingEnumMap[instance.e]!,
     };
 
 const _$AudioOutputRoutingEnumMap = {
@@ -221,16 +221,16 @@ const _$AudioOutputRoutingEnumMap = {
 AudioProfileConverter _$AudioProfileConverterFromJson(
         Map<String, dynamic> json) =>
     AudioProfileConverter(
-      $enumDecode(_$AudioProfileEnumMap, json['e']),
+      $enumDecode(_$AudioProfileTypeEnumMap, json['e']),
     );
 
 Map<String, dynamic> _$AudioProfileConverterToJson(
         AudioProfileConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioProfileEnumMap[instance.e],
+      'e': _$AudioProfileTypeEnumMap[instance.e]!,
     };
 
-const _$AudioProfileEnumMap = {
+const _$AudioProfileTypeEnumMap = {
   AudioProfileType.audioProfileDefault: 0,
   AudioProfileType.audioProfileSpeechStandard: 1,
   AudioProfileType.audioProfileMusicStandard: 2,
@@ -250,7 +250,7 @@ AudioRecordingQualityConverter _$AudioRecordingQualityConverterFromJson(
 Map<String, dynamic> _$AudioRecordingQualityConverterToJson(
         AudioRecordingQualityConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioRecordingQualityEnumMap[instance.e],
+      'e': _$AudioRecordingQualityEnumMap[instance.e]!,
     };
 
 const _$AudioRecordingQualityEnumMap = {
@@ -268,7 +268,7 @@ AudioRecordingPositionConverter _$AudioRecordingPositionConverterFromJson(
 Map<String, dynamic> _$AudioRecordingPositionConverterToJson(
         AudioRecordingPositionConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioRecordingPositionEnumMap[instance.e],
+      'e': _$AudioRecordingPositionEnumMap[instance.e]!,
     };
 
 const _$AudioRecordingPositionEnumMap = {
@@ -286,7 +286,7 @@ AudioRemoteStateConverter _$AudioRemoteStateConverterFromJson(
 Map<String, dynamic> _$AudioRemoteStateConverterToJson(
         AudioRemoteStateConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioRemoteStateEnumMap[instance.e],
+      'e': _$AudioRemoteStateEnumMap[instance.e]!,
     };
 
 const _$AudioRemoteStateEnumMap = {
@@ -306,7 +306,7 @@ AudioRemoteStateReasonConverter _$AudioRemoteStateReasonConverterFromJson(
 Map<String, dynamic> _$AudioRemoteStateReasonConverterToJson(
         AudioRemoteStateReasonConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioRemoteStateReasonEnumMap[instance.e],
+      'e': _$AudioRemoteStateReasonEnumMap[instance.e]!,
     };
 
 const _$AudioRemoteStateReasonEnumMap = {
@@ -329,7 +329,7 @@ AudioReverbPresetConverter _$AudioReverbPresetConverterFromJson(
 Map<String, dynamic> _$AudioReverbPresetConverterToJson(
         AudioReverbPresetConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioReverbPresetEnumMap[instance.e],
+      'e': _$AudioReverbPresetEnumMap[instance.e]!,
     };
 
 const _$AudioReverbPresetEnumMap = {
@@ -363,7 +363,7 @@ AudioReverbTypeConverter _$AudioReverbTypeConverterFromJson(
 Map<String, dynamic> _$AudioReverbTypeConverterToJson(
         AudioReverbTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioReverbTypeEnumMap[instance.e],
+      'e': _$AudioReverbTypeEnumMap[instance.e]!,
     };
 
 const _$AudioReverbTypeEnumMap = {
@@ -383,7 +383,7 @@ AudioSampleRateTypeConverter _$AudioSampleRateTypeConverterFromJson(
 Map<String, dynamic> _$AudioSampleRateTypeConverterToJson(
         AudioSampleRateTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioSampleRateTypeEnumMap[instance.e],
+      'e': _$AudioSampleRateTypeEnumMap[instance.e]!,
     };
 
 const _$AudioSampleRateTypeEnumMap = {
@@ -395,16 +395,16 @@ const _$AudioSampleRateTypeEnumMap = {
 AudioScenarioConverter _$AudioScenarioConverterFromJson(
         Map<String, dynamic> json) =>
     AudioScenarioConverter(
-      $enumDecode(_$AudioScenarioEnumMap, json['e']),
+      $enumDecode(_$AudioScenarioTypeEnumMap, json['e']),
     );
 
 Map<String, dynamic> _$AudioScenarioConverterToJson(
         AudioScenarioConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioScenarioEnumMap[instance.e],
+      'e': _$AudioScenarioTypeEnumMap[instance.e]!,
     };
 
-const _$AudioScenarioEnumMap = {
+const _$AudioScenarioTypeEnumMap = {
   AudioScenarioType.audioScenarioDefault: 0,
   AudioScenarioType.audioScenarioGameStreaming: 3,
   AudioScenarioType.audioScenarioChatroom: 5,
@@ -422,7 +422,7 @@ AudioVoiceChangerConverter _$AudioVoiceChangerConverterFromJson(
 Map<String, dynamic> _$AudioVoiceChangerConverterToJson(
         AudioVoiceChangerConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioVoiceChangerEnumMap[instance.e],
+      'e': _$AudioVoiceChangerEnumMap[instance.e]!,
     };
 
 const _$AudioVoiceChangerEnumMap = {
@@ -457,7 +457,7 @@ CameraCaptureOutputPreferenceConverter
 Map<String, dynamic> _$CameraCaptureOutputPreferenceConverterToJson(
         CameraCaptureOutputPreferenceConverter instance) =>
     <String, dynamic>{
-      'e': _$CameraCaptureOutputPreferenceEnumMap[instance.e],
+      'e': _$CameraCaptureOutputPreferenceEnumMap[instance.e]!,
     };
 
 const _$CameraCaptureOutputPreferenceEnumMap = {
@@ -476,7 +476,7 @@ CameraDirectionConverter _$CameraDirectionConverterFromJson(
 Map<String, dynamic> _$CameraDirectionConverterToJson(
         CameraDirectionConverter instance) =>
     <String, dynamic>{
-      'e': _$CameraDirectionEnumMap[instance.e],
+      'e': _$CameraDirectionEnumMap[instance.e]!,
     };
 
 const _$CameraDirectionEnumMap = {
@@ -493,7 +493,7 @@ ChannelMediaRelayErrorConverter _$ChannelMediaRelayErrorConverterFromJson(
 Map<String, dynamic> _$ChannelMediaRelayErrorConverterToJson(
         ChannelMediaRelayErrorConverter instance) =>
     <String, dynamic>{
-      'e': _$ChannelMediaRelayErrorEnumMap[instance.e],
+      'e': _$ChannelMediaRelayErrorEnumMap[instance.e]!,
     };
 
 const _$ChannelMediaRelayErrorEnumMap = {
@@ -520,7 +520,7 @@ ChannelMediaRelayEventConverter _$ChannelMediaRelayEventConverterFromJson(
 Map<String, dynamic> _$ChannelMediaRelayEventConverterToJson(
         ChannelMediaRelayEventConverter instance) =>
     <String, dynamic>{
-      'e': _$ChannelMediaRelayEventEnumMap[instance.e],
+      'e': _$ChannelMediaRelayEventEnumMap[instance.e]!,
     };
 
 const _$ChannelMediaRelayEventEnumMap = {
@@ -551,7 +551,7 @@ ChannelMediaRelayStateConverter _$ChannelMediaRelayStateConverterFromJson(
 Map<String, dynamic> _$ChannelMediaRelayStateConverterToJson(
         ChannelMediaRelayStateConverter instance) =>
     <String, dynamic>{
-      'e': _$ChannelMediaRelayStateEnumMap[instance.e],
+      'e': _$ChannelMediaRelayStateEnumMap[instance.e]!,
     };
 
 const _$ChannelMediaRelayStateEnumMap = {
@@ -570,7 +570,7 @@ ChannelProfileConverter _$ChannelProfileConverterFromJson(
 Map<String, dynamic> _$ChannelProfileConverterToJson(
         ChannelProfileConverter instance) =>
     <String, dynamic>{
-      'e': _$ChannelProfileEnumMap[instance.e],
+      'e': _$ChannelProfileEnumMap[instance.e]!,
     };
 
 const _$ChannelProfileEnumMap = {
@@ -581,16 +581,16 @@ const _$ChannelProfileEnumMap = {
 
 ClientRoleConverter _$ClientRoleConverterFromJson(Map<String, dynamic> json) =>
     ClientRoleConverter(
-      $enumDecode(_$ClientRoleEnumMap, json['e']),
+      $enumDecode(_$ClientRoleTypeEnumMap, json['e']),
     );
 
 Map<String, dynamic> _$ClientRoleConverterToJson(
         ClientRoleConverter instance) =>
     <String, dynamic>{
-      'e': _$ClientRoleEnumMap[instance.e],
+      'e': _$ClientRoleTypeEnumMap[instance.e]!,
     };
 
-const _$ClientRoleEnumMap = {
+const _$ClientRoleTypeEnumMap = {
   ClientRoleType.clientRoleBroadcaster: 1,
   ClientRoleType.clientRoleAudience: 2,
 };
@@ -604,7 +604,7 @@ ConnectionChangedReasonConverter _$ConnectionChangedReasonConverterFromJson(
 Map<String, dynamic> _$ConnectionChangedReasonConverterToJson(
         ConnectionChangedReasonConverter instance) =>
     <String, dynamic>{
-      'e': _$ConnectionChangedReasonEnumMap[instance.e],
+      'e': _$ConnectionChangedReasonEnumMap[instance.e]!,
     };
 
 const _$ConnectionChangedReasonEnumMap = {
@@ -636,7 +636,7 @@ ConnectionStateTypeConverter _$ConnectionStateTypeConverterFromJson(
 Map<String, dynamic> _$ConnectionStateTypeConverterToJson(
         ConnectionStateTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$ConnectionStateTypeEnumMap[instance.e],
+      'e': _$ConnectionStateTypeEnumMap[instance.e]!,
     };
 
 const _$ConnectionStateTypeEnumMap = {
@@ -656,7 +656,7 @@ DegradationPreferenceConverter _$DegradationPreferenceConverterFromJson(
 Map<String, dynamic> _$DegradationPreferenceConverterToJson(
         DegradationPreferenceConverter instance) =>
     <String, dynamic>{
-      'e': _$DegradationPreferenceEnumMap[instance.e],
+      'e': _$DegradationPreferenceEnumMap[instance.e]!,
     };
 
 const _$DegradationPreferenceEnumMap = {
@@ -674,7 +674,7 @@ EncryptionModeConverter _$EncryptionModeConverterFromJson(
 Map<String, dynamic> _$EncryptionModeConverterToJson(
         EncryptionModeConverter instance) =>
     <String, dynamic>{
-      'e': _$EncryptionModeEnumMap[instance.e],
+      'e': _$EncryptionModeEnumMap[instance.e]!,
     };
 
 const _$EncryptionModeEnumMap = {
@@ -695,7 +695,7 @@ ErrorCodeConverter _$ErrorCodeConverterFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$ErrorCodeConverterToJson(ErrorCodeConverter instance) =>
     <String, dynamic>{
-      'e': _$ErrorCodeEnumMap[instance.e],
+      'e': _$ErrorCodeEnumMap[instance.e]!,
     };
 
 const _$ErrorCodeEnumMap = {
@@ -794,7 +794,7 @@ InjectStreamStatusConverter _$InjectStreamStatusConverterFromJson(
 Map<String, dynamic> _$InjectStreamStatusConverterToJson(
         InjectStreamStatusConverter instance) =>
     <String, dynamic>{
-      'e': _$InjectStreamStatusEnumMap[instance.e],
+      'e': _$InjectStreamStatusEnumMap[instance.e]!,
     };
 
 const _$InjectStreamStatusEnumMap = {
@@ -820,7 +820,7 @@ LastmileProbeResultStateConverter _$LastmileProbeResultStateConverterFromJson(
 Map<String, dynamic> _$LastmileProbeResultStateConverterToJson(
         LastmileProbeResultStateConverter instance) =>
     <String, dynamic>{
-      'e': _$LastmileProbeResultStateEnumMap[instance.e],
+      'e': _$LastmileProbeResultStateEnumMap[instance.e]!,
     };
 
 const _$LastmileProbeResultStateEnumMap = {
@@ -838,7 +838,7 @@ LighteningContrastLevelConverter _$LighteningContrastLevelConverterFromJson(
 Map<String, dynamic> _$LighteningContrastLevelConverterToJson(
         LighteningContrastLevelConverter instance) =>
     <String, dynamic>{
-      'e': _$LighteningContrastLevelEnumMap[instance.e],
+      'e': _$LighteningContrastLevelEnumMap[instance.e]!,
     };
 
 const _$LighteningContrastLevelEnumMap = {
@@ -856,7 +856,7 @@ LocalVideoStreamErrorConverter _$LocalVideoStreamErrorConverterFromJson(
 Map<String, dynamic> _$LocalVideoStreamErrorConverterToJson(
         LocalVideoStreamErrorConverter instance) =>
     <String, dynamic>{
-      'e': _$LocalVideoStreamErrorEnumMap[instance.e],
+      'e': _$LocalVideoStreamErrorEnumMap[instance.e]!,
     };
 
 const _$LocalVideoStreamErrorEnumMap = {
@@ -890,7 +890,7 @@ LocalVideoStreamStateConverter _$LocalVideoStreamStateConverterFromJson(
 Map<String, dynamic> _$LocalVideoStreamStateConverterToJson(
         LocalVideoStreamStateConverter instance) =>
     <String, dynamic>{
-      'e': _$LocalVideoStreamStateEnumMap[instance.e],
+      'e': _$LocalVideoStreamStateEnumMap[instance.e]!,
     };
 
 const _$LocalVideoStreamStateEnumMap = {
@@ -907,7 +907,7 @@ LogFilterConverter _$LogFilterConverterFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$LogFilterConverterToJson(LogFilterConverter instance) =>
     <String, dynamic>{
-      'e': _$LogFilterEnumMap[instance.e],
+      'e': _$LogFilterEnumMap[instance.e]!,
     };
 
 const _$LogFilterEnumMap = {
@@ -928,7 +928,7 @@ NetworkQualityConverter _$NetworkQualityConverterFromJson(
 Map<String, dynamic> _$NetworkQualityConverterToJson(
         NetworkQualityConverter instance) =>
     <String, dynamic>{
-      'e': _$NetworkQualityEnumMap[instance.e],
+      'e': _$NetworkQualityEnumMap[instance.e]!,
     };
 
 const _$NetworkQualityEnumMap = {
@@ -952,7 +952,7 @@ NetworkTypeConverter _$NetworkTypeConverterFromJson(
 Map<String, dynamic> _$NetworkTypeConverterToJson(
         NetworkTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$NetworkTypeEnumMap[instance.e],
+      'e': _$NetworkTypeEnumMap[instance.e]!,
     };
 
 const _$NetworkTypeEnumMap = {
@@ -975,7 +975,7 @@ RtmpStreamingErrorCodeConverter _$RtmpStreamingErrorCodeConverterFromJson(
 Map<String, dynamic> _$RtmpStreamingErrorCodeConverterToJson(
         RtmpStreamingErrorCodeConverter instance) =>
     <String, dynamic>{
-      'e': _$RtmpStreamingErrorCodeEnumMap[instance.e],
+      'e': _$RtmpStreamingErrorCodeEnumMap[instance.e]!,
     };
 
 const _$RtmpStreamingErrorCodeEnumMap = {
@@ -1006,7 +1006,7 @@ RtmpStreamingStateConverter _$RtmpStreamingStateConverterFromJson(
 Map<String, dynamic> _$RtmpStreamingStateConverterToJson(
         RtmpStreamingStateConverter instance) =>
     <String, dynamic>{
-      'e': _$RtmpStreamingStateEnumMap[instance.e],
+      'e': _$RtmpStreamingStateEnumMap[instance.e]!,
     };
 
 const _$RtmpStreamingStateEnumMap = {
@@ -1027,7 +1027,7 @@ StreamFallbackOptionsConverter _$StreamFallbackOptionsConverterFromJson(
 Map<String, dynamic> _$StreamFallbackOptionsConverterToJson(
         StreamFallbackOptionsConverter instance) =>
     <String, dynamic>{
-      'e': _$StreamFallbackOptionsEnumMap[instance.e],
+      'e': _$StreamFallbackOptionsEnumMap[instance.e]!,
     };
 
 const _$StreamFallbackOptionsEnumMap = {
@@ -1045,7 +1045,7 @@ UserOfflineReasonConverter _$UserOfflineReasonConverterFromJson(
 Map<String, dynamic> _$UserOfflineReasonConverterToJson(
         UserOfflineReasonConverter instance) =>
     <String, dynamic>{
-      'e': _$UserOfflineReasonEnumMap[instance.e],
+      'e': _$UserOfflineReasonEnumMap[instance.e]!,
     };
 
 const _$UserOfflineReasonEnumMap = {
@@ -1063,7 +1063,7 @@ UserPriorityConverter _$UserPriorityConverterFromJson(
 Map<String, dynamic> _$UserPriorityConverterToJson(
         UserPriorityConverter instance) =>
     <String, dynamic>{
-      'e': _$UserPriorityEnumMap[instance.e],
+      'e': _$UserPriorityEnumMap[instance.e]!,
     };
 
 const _$UserPriorityEnumMap = {
@@ -1080,7 +1080,7 @@ VideoCodecProfileTypeConverter _$VideoCodecProfileTypeConverterFromJson(
 Map<String, dynamic> _$VideoCodecProfileTypeConverterToJson(
         VideoCodecProfileTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$VideoCodecProfileTypeEnumMap[instance.e],
+      'e': _$VideoCodecProfileTypeEnumMap[instance.e]!,
     };
 
 const _$VideoCodecProfileTypeEnumMap = {
@@ -1098,7 +1098,7 @@ VideoFrameRateConverter _$VideoFrameRateConverterFromJson(
 Map<String, dynamic> _$VideoFrameRateConverterToJson(
         VideoFrameRateConverter instance) =>
     <String, dynamic>{
-      'e': _$VideoFrameRateEnumMap[instance.e],
+      'e': _$VideoFrameRateEnumMap[instance.e]!,
     };
 
 const _$VideoFrameRateEnumMap = {
@@ -1118,7 +1118,7 @@ BitRateConverter _$BitRateConverterFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$BitRateConverterToJson(BitRateConverter instance) =>
     <String, dynamic>{
-      'e': _$BitRateEnumMap[instance.e],
+      'e': _$BitRateEnumMap[instance.e]!,
     };
 
 const _$BitRateEnumMap = {
@@ -1135,7 +1135,7 @@ VideoMirrorModeConverter _$VideoMirrorModeConverterFromJson(
 Map<String, dynamic> _$VideoMirrorModeConverterToJson(
         VideoMirrorModeConverter instance) =>
     <String, dynamic>{
-      'e': _$VideoMirrorModeEnumMap[instance.e],
+      'e': _$VideoMirrorModeEnumMap[instance.e]!,
     };
 
 const _$VideoMirrorModeEnumMap = {
@@ -1153,7 +1153,7 @@ VideoOutputOrientationModeConverter
 Map<String, dynamic> _$VideoOutputOrientationModeConverterToJson(
         VideoOutputOrientationModeConverter instance) =>
     <String, dynamic>{
-      'e': _$VideoOutputOrientationModeEnumMap[instance.e],
+      'e': _$VideoOutputOrientationModeEnumMap[instance.e]!,
     };
 
 const _$VideoOutputOrientationModeEnumMap = {
@@ -1171,7 +1171,7 @@ VideoQualityAdaptIndicationConverter
 Map<String, dynamic> _$VideoQualityAdaptIndicationConverterToJson(
         VideoQualityAdaptIndicationConverter instance) =>
     <String, dynamic>{
-      'e': _$VideoQualityAdaptIndicationEnumMap[instance.e],
+      'e': _$VideoQualityAdaptIndicationEnumMap[instance.e]!,
     };
 
 const _$VideoQualityAdaptIndicationEnumMap = {
@@ -1189,7 +1189,7 @@ VideoRemoteStateConverter _$VideoRemoteStateConverterFromJson(
 Map<String, dynamic> _$VideoRemoteStateConverterToJson(
         VideoRemoteStateConverter instance) =>
     <String, dynamic>{
-      'e': _$VideoRemoteStateEnumMap[instance.e],
+      'e': _$VideoRemoteStateEnumMap[instance.e]!,
     };
 
 const _$VideoRemoteStateEnumMap = {
@@ -1209,7 +1209,7 @@ VideoRemoteStateReasonConverter _$VideoRemoteStateReasonConverterFromJson(
 Map<String, dynamic> _$VideoRemoteStateReasonConverterToJson(
         VideoRemoteStateReasonConverter instance) =>
     <String, dynamic>{
-      'e': _$VideoRemoteStateReasonEnumMap[instance.e],
+      'e': _$VideoRemoteStateReasonEnumMap[instance.e]!,
     };
 
 const _$VideoRemoteStateReasonEnumMap = {
@@ -1235,7 +1235,7 @@ VideoRenderModeConverter _$VideoRenderModeConverterFromJson(
 Map<String, dynamic> _$VideoRenderModeConverterToJson(
         VideoRenderModeConverter instance) =>
     <String, dynamic>{
-      'e': _$VideoRenderModeEnumMap[instance.e],
+      'e': _$VideoRenderModeEnumMap[instance.e]!,
     };
 
 const _$VideoRenderModeEnumMap = {
@@ -1254,7 +1254,7 @@ VideoStreamTypeConverter _$VideoStreamTypeConverterFromJson(
 Map<String, dynamic> _$VideoStreamTypeConverterToJson(
         VideoStreamTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$VideoStreamTypeEnumMap[instance.e],
+      'e': _$VideoStreamTypeEnumMap[instance.e]!,
     };
 
 const _$VideoStreamTypeEnumMap = {
@@ -1271,7 +1271,7 @@ WarningCodeConverter _$WarningCodeConverterFromJson(
 Map<String, dynamic> _$WarningCodeConverterToJson(
         WarningCodeConverter instance) =>
     <String, dynamic>{
-      'e': _$WarningCodeEnumMap[instance.e],
+      'e': _$WarningCodeEnumMap[instance.e]!,
     };
 
 const _$WarningCodeEnumMap = {
@@ -1318,7 +1318,7 @@ AudioChannelConverter _$AudioChannelConverterFromJson(
 Map<String, dynamic> _$AudioChannelConverterToJson(
         AudioChannelConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioChannelEnumMap[instance.e],
+      'e': _$AudioChannelEnumMap[instance.e]!,
     };
 
 const _$AudioChannelEnumMap = {
@@ -1339,7 +1339,7 @@ VideoCodecTypeConverter _$VideoCodecTypeConverterFromJson(
 Map<String, dynamic> _$VideoCodecTypeConverterToJson(
         VideoCodecTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$VideoCodecTypeEnumMap[instance.e],
+      'e': _$VideoCodecTypeEnumMap[instance.e]!,
     };
 
 const _$VideoCodecTypeEnumMap = {
@@ -1358,7 +1358,7 @@ StreamPublishStateConverter _$StreamPublishStateConverterFromJson(
 Map<String, dynamic> _$StreamPublishStateConverterToJson(
         StreamPublishStateConverter instance) =>
     <String, dynamic>{
-      'e': _$StreamPublishStateEnumMap[instance.e],
+      'e': _$StreamPublishStateEnumMap[instance.e]!,
     };
 
 const _$StreamPublishStateEnumMap = {
@@ -1377,7 +1377,7 @@ StreamSubscribeStateConverter _$StreamSubscribeStateConverterFromJson(
 Map<String, dynamic> _$StreamSubscribeStateConverterToJson(
         StreamSubscribeStateConverter instance) =>
     <String, dynamic>{
-      'e': _$StreamSubscribeStateEnumMap[instance.e],
+      'e': _$StreamSubscribeStateEnumMap[instance.e]!,
     };
 
 const _$StreamSubscribeStateEnumMap = {
@@ -1396,7 +1396,7 @@ RtmpStreamingEventConverter _$RtmpStreamingEventConverterFromJson(
 Map<String, dynamic> _$RtmpStreamingEventConverterToJson(
         RtmpStreamingEventConverter instance) =>
     <String, dynamic>{
-      'e': _$RtmpStreamingEventEnumMap[instance.e],
+      'e': _$RtmpStreamingEventEnumMap[instance.e]!,
     };
 
 const _$RtmpStreamingEventEnumMap = {
@@ -1416,7 +1416,7 @@ AudioSessionOperationRestrictionConverter
 Map<String, dynamic> _$AudioSessionOperationRestrictionConverterToJson(
         AudioSessionOperationRestrictionConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioSessionOperationRestrictionEnumMap[instance.e],
+      'e': _$AudioSessionOperationRestrictionEnumMap[instance.e]!,
     };
 
 const _$AudioSessionOperationRestrictionEnumMap = {
@@ -1436,7 +1436,7 @@ AudioEffectPresetConverter _$AudioEffectPresetConverterFromJson(
 Map<String, dynamic> _$AudioEffectPresetConverterToJson(
         AudioEffectPresetConverter instance) =>
     <String, dynamic>{
-      'e': _$AudioEffectPresetEnumMap[instance.e],
+      'e': _$AudioEffectPresetEnumMap[instance.e]!,
     };
 
 const _$AudioEffectPresetEnumMap = {
@@ -1470,7 +1470,7 @@ VoiceBeautifierPresetConverter _$VoiceBeautifierPresetConverterFromJson(
 Map<String, dynamic> _$VoiceBeautifierPresetConverterToJson(
         VoiceBeautifierPresetConverter instance) =>
     <String, dynamic>{
-      'e': _$VoiceBeautifierPresetEnumMap[instance.e],
+      'e': _$VoiceBeautifierPresetEnumMap[instance.e]!,
     };
 
 const _$VoiceBeautifierPresetEnumMap = {
@@ -1498,7 +1498,7 @@ AudienceLatencyLevelTypeConverter _$AudienceLatencyLevelTypeConverterFromJson(
 Map<String, dynamic> _$AudienceLatencyLevelTypeConverterToJson(
         AudienceLatencyLevelTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$AudienceLatencyLevelTypeEnumMap[instance.e],
+      'e': _$AudienceLatencyLevelTypeEnumMap[instance.e]!,
     };
 
 const _$AudienceLatencyLevelTypeEnumMap = {
@@ -1513,7 +1513,7 @@ LogLevelConverter _$LogLevelConverterFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$LogLevelConverterToJson(LogLevelConverter instance) =>
     <String, dynamic>{
-      'e': _$LogLevelEnumMap[instance.e],
+      'e': _$LogLevelEnumMap[instance.e]!,
     };
 
 const _$LogLevelEnumMap = {
@@ -1533,7 +1533,7 @@ CaptureBrightnessLevelTypeConverter
 Map<String, dynamic> _$CaptureBrightnessLevelTypeConverterToJson(
         CaptureBrightnessLevelTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$CaptureBrightnessLevelTypeEnumMap[instance.e],
+      'e': _$CaptureBrightnessLevelTypeEnumMap[instance.e]!,
     };
 
 const _$CaptureBrightnessLevelTypeEnumMap = {
@@ -1552,7 +1552,7 @@ SuperResolutionStateReasonConverter
 Map<String, dynamic> _$SuperResolutionStateReasonConverterToJson(
         SuperResolutionStateReasonConverter instance) =>
     <String, dynamic>{
-      'e': _$SuperResolutionStateReasonEnumMap[instance.e],
+      'e': _$SuperResolutionStateReasonEnumMap[instance.e]!,
     };
 
 const _$SuperResolutionStateReasonEnumMap = {
@@ -1571,7 +1571,7 @@ UploadErrorReasonConverter _$UploadErrorReasonConverterFromJson(
 Map<String, dynamic> _$UploadErrorReasonConverterToJson(
         UploadErrorReasonConverter instance) =>
     <String, dynamic>{
-      'e': _$UploadErrorReasonEnumMap[instance.e],
+      'e': _$UploadErrorReasonEnumMap[instance.e]!,
     };
 
 const _$UploadErrorReasonEnumMap = {
@@ -1589,7 +1589,7 @@ MediaDeviceTypeConverter _$MediaDeviceTypeConverterFromJson(
 Map<String, dynamic> _$MediaDeviceTypeConverterToJson(
         MediaDeviceTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$MediaDeviceTypeEnumMap[instance.e],
+      'e': _$MediaDeviceTypeEnumMap[instance.e]!,
     };
 
 const _$MediaDeviceTypeEnumMap = {
@@ -1610,7 +1610,7 @@ MediaDeviceStateTypeConverter _$MediaDeviceStateTypeConverterFromJson(
 Map<String, dynamic> _$MediaDeviceStateTypeConverterToJson(
         MediaDeviceStateTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$MediaDeviceStateTypeEnumMap[instance.e],
+      'e': _$MediaDeviceStateTypeEnumMap[instance.e]!,
     };
 
 const _$MediaDeviceStateTypeEnumMap = {
@@ -1631,7 +1631,7 @@ CloudProxyTypeConverter _$CloudProxyTypeConverterFromJson(
 Map<String, dynamic> _$CloudProxyTypeConverterToJson(
         CloudProxyTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$CloudProxyTypeEnumMap[instance.e],
+      'e': _$CloudProxyTypeEnumMap[instance.e]!,
     };
 
 const _$CloudProxyTypeEnumMap = {
@@ -1649,7 +1649,7 @@ ExperienceQualityTypeConverter _$ExperienceQualityTypeConverterFromJson(
 Map<String, dynamic> _$ExperienceQualityTypeConverterToJson(
         ExperienceQualityTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$ExperienceQualityTypeEnumMap[instance.e],
+      'e': _$ExperienceQualityTypeEnumMap[instance.e]!,
     };
 
 const _$ExperienceQualityTypeEnumMap = {
@@ -1666,7 +1666,7 @@ ExperiencePoorReasonConverter _$ExperiencePoorReasonConverterFromJson(
 Map<String, dynamic> _$ExperiencePoorReasonConverterToJson(
         ExperiencePoorReasonConverter instance) =>
     <String, dynamic>{
-      'e': _$ExperiencePoorReasonEnumMap[instance.e],
+      'e': _$ExperiencePoorReasonEnumMap[instance.e]!,
     };
 
 const _$ExperiencePoorReasonEnumMap = {
@@ -1686,7 +1686,7 @@ VoiceConversionPresetConverter _$VoiceConversionPresetConverterFromJson(
 Map<String, dynamic> _$VoiceConversionPresetConverterToJson(
         VoiceConversionPresetConverter instance) =>
     <String, dynamic>{
-      'e': _$VoiceConversionPresetEnumMap[instance.e],
+      'e': _$VoiceConversionPresetEnumMap[instance.e]!,
     };
 
 const _$VoiceConversionPresetEnumMap = {
@@ -1706,7 +1706,7 @@ VirtualBackgroundSourceTypeConverter
 Map<String, dynamic> _$VirtualBackgroundSourceTypeConverterToJson(
         VirtualBackgroundSourceTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$VirtualBackgroundSourceTypeEnumMap[instance.e],
+      'e': _$VirtualBackgroundSourceTypeEnumMap[instance.e]!,
     };
 
 const _$VirtualBackgroundSourceTypeEnumMap = {
@@ -1724,7 +1724,7 @@ VirtualBackgroundBlurDegreeConverter
 Map<String, dynamic> _$VirtualBackgroundBlurDegreeConverterToJson(
         VirtualBackgroundBlurDegreeConverter instance) =>
     <String, dynamic>{
-      'e': _$VirtualBackgroundBlurDegreeEnumMap[instance.e],
+      'e': _$VirtualBackgroundBlurDegreeEnumMap[instance.e]!,
     };
 
 const _$VirtualBackgroundBlurDegreeEnumMap = {
@@ -1743,7 +1743,7 @@ VirtualBackgroundSourceStateReasonConverter
 Map<String, dynamic> _$VirtualBackgroundSourceStateReasonConverterToJson(
         VirtualBackgroundSourceStateReasonConverter instance) =>
     <String, dynamic>{
-      'e': _$VirtualBackgroundSourceStateReasonEnumMap[instance.e],
+      'e': _$VirtualBackgroundSourceStateReasonEnumMap[instance.e]!,
     };
 
 const _$VirtualBackgroundSourceStateReasonEnumMap = {
@@ -1762,7 +1762,7 @@ VideoContentHintConverter _$VideoContentHintConverterFromJson(
 Map<String, dynamic> _$VideoContentHintConverterToJson(
         VideoContentHintConverter instance) =>
     <String, dynamic>{
-      'e': _$VideoContentHintEnumMap[instance.e],
+      'e': _$VideoContentHintEnumMap[instance.e]!,
     };
 
 const _$VideoContentHintEnumMap = {
@@ -1780,7 +1780,7 @@ ScreenScenarioTypeConverter _$ScreenScenarioTypeConverterFromJson(
 Map<String, dynamic> _$ScreenScenarioTypeConverterToJson(
         ScreenScenarioTypeConverter instance) =>
     <String, dynamic>{
-      'e': _$ScreenScenarioTypeEnumMap[instance.e],
+      'e': _$ScreenScenarioTypeEnumMap[instance.e]!,
     };
 
 const _$ScreenScenarioTypeEnumMap = {

@@ -4615,3 +4615,183 @@ enum ErrScreenCapture {
   @JsonValue(3)
   ErrScreenCaptureSystemAudioNotSupported,
 }
+
+/// Reasons for a user being offline.
+@JsonEnum(alwaysCreate: true)
+enum UserOfflineReasonType {
+  /// 0: The user quits the call.
+  @JsonValue(0)
+  userOfflineQuit,
+
+  /// 1: The SDK times out and the user drops offline because no data packet is received within a certain period of time.If the user quits the call and the message is not passed to the SDK (due to an unreliable channel), the SDK assumes the user dropped offline.
+  @JsonValue(1)
+  userOfflineDropped,
+
+  /// 2: The user switches the client role from the host to the audience.
+  @JsonValue(2)
+  userOfflineBecomeAudience,
+}
+
+
+/// Video display modes.
+@JsonEnum(alwaysCreate: true)
+enum RenderModeType {
+  /// 1: Hidden mode. Uniformly scale the video until one of its dimension fits the boundary (zoomed to fit). One dimension of the video may have clipped contents.
+  @JsonValue(1)
+  renderModeHidden,
+
+  /// 2: Fit mode. Uniformly scale the video until one of its dimension fits the boundary (zoomed to fit). Areas that are not filled due to disparity in the aspect ratio are filled with black.
+  @JsonValue(2)
+  renderModeFit,
+
+  /// Deprecated:3: This mode is deprecated.
+  @JsonValue(3)
+  renderModeAdaptive,
+}
+
+
+/// Video mirror mode.
+@JsonEnum(alwaysCreate: true)
+enum VideoMirrorModeType {
+  /// 0: The SDK determines the mirror mode.For the mirror mode of the local video view: If you use a front camera, the SDK enables the mirror mode by default; if you use a rear camera, the SDK disables the mirror mode by default.For the remote user: The mirror mode is disabled by default.
+  @JsonValue(0)
+  videoMirrorModeAuto,
+
+  /// 1: Enable mirror mode.
+  @JsonValue(1)
+  videoMirrorModeEnabled,
+
+  /// 2: Disable mirror mode.
+  @JsonValue(2)
+  videoMirrorModeDisabled,
+}
+
+
+/// Setting mode of the view.
+@JsonEnum(alwaysCreate: true)
+enum VideoViewSetupMode {
+  /// 0: (Default) Replaces a view.
+  @JsonValue(0)
+  videoViewSetupReplace,
+
+  /// 1: Adds a view.
+  @JsonValue(1)
+  videoViewSetupAdd,
+
+  /// 2: Deletes a view.
+  @JsonValue(2)
+  videoViewSetupRemove,
+}
+
+
+/// The type of the video source.
+@JsonEnum(alwaysCreate: true)
+enum VideoSourceType {
+  /// 0: (Default) The primary camera.
+  @JsonValue(0)
+  videoSourceCameraPrimary,
+
+  /// 0: (Default) The primary camera.
+  @JsonValue(0)
+  videoSourceCamera,
+
+  /// 1: The secondary camera.
+  @JsonValue(1)
+  videoSourceCameraSecondary,
+
+  /// 2: The primary screen.
+  @JsonValue(2)
+  videoSourceScreenPrimary,
+
+  /// 2: The primary screen.
+  @JsonValue(2)
+  videoSourceScreen,
+
+  /// 3: The secondary screen.
+  @JsonValue(3)
+  videoSourceScreenSecondary,
+
+  /// 4: A custom video source.
+  @JsonValue(4)
+  videoSourceCustom,
+
+  /// 5: The media player.
+  @JsonValue(5)
+  videoSourceMediaPlayer,
+
+  /// 6: One PNG image.
+  @JsonValue(6)
+  videoSourceRtcImagePng,
+
+  /// 7: One JPEG image.
+  @JsonValue(7)
+  videoSourceRtcImageJpeg,
+
+  /// 8: One GIF image.
+  @JsonValue(8)
+  videoSourceRtcImageGif,
+
+  /// 9: One remote video acquired by the network.
+  @JsonValue(9)
+  videoSourceRemote,
+
+  /// 10: One transcoded video source.
+  @JsonValue(10)
+  videoSourceTranscoded,
+
+  /// 11: (For Windows and macOS only) The third camera.
+  @JsonValue(11)
+  videoSourceCameraThird,
+
+  /// 12: (For Windows and macOS only) The fourth camera.
+  @JsonValue(12)
+  videoSourceCameraFourth,
+
+  /// 13: (For Windows and macOS only) The third screen.
+  @JsonValue(13)
+  videoSourceScreenThird,
+
+  /// 14: (For Windows and macOS only) The fourth screen.
+  @JsonValue(14)
+  videoSourceScreenFourth,
+
+  /// 100: An unknown video source.
+  @JsonValue(100)
+  videoSourceUnknown,
+}
+
+
+/// @nodoc
+extension VideoSourceTypeExt on VideoSourceType {
+  /// @nodoc
+  static VideoSourceType fromValue(int value) {
+    return $enumDecode(_$VideoSourceTypeEnumMap, value);
+  }
+
+  /// @nodoc
+  int value() {
+    return _$VideoSourceTypeEnumMap[this]!;
+  }
+}
+
+
+const _$VideoSourceTypeEnumMap = {
+  VideoSourceType.videoSourceCameraPrimary: 0,
+  VideoSourceType.videoSourceCamera: 0,
+  VideoSourceType.videoSourceCameraSecondary: 1,
+  VideoSourceType.videoSourceScreenPrimary: 2,
+  VideoSourceType.videoSourceScreen: 2,
+  VideoSourceType.videoSourceScreenSecondary: 3,
+  VideoSourceType.videoSourceCustom: 4,
+  VideoSourceType.videoSourceMediaPlayer: 5,
+  VideoSourceType.videoSourceRtcImagePng: 6,
+  VideoSourceType.videoSourceRtcImageJpeg: 7,
+  VideoSourceType.videoSourceRtcImageGif: 8,
+  VideoSourceType.videoSourceRemote: 9,
+  VideoSourceType.videoSourceTranscoded: 10,
+  VideoSourceType.videoSourceCameraThird: 11,
+  VideoSourceType.videoSourceCameraFourth: 12,
+  VideoSourceType.videoSourceScreenThird: 13,
+  VideoSourceType.videoSourceScreenFourth: 14,
+  VideoSourceType.videoSourceUnknown: 100,
+};

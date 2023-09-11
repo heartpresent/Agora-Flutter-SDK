@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'enums.dart';
 import 'rtc_engine.dart';
 
+import 'package:agora_rtc_engine/src/web/impl/rtc_engine_impl.dart' as impl;
+
 /// Extension for RtcEngine
 extension RtcEngineExtension on RtcEngine {
   /// Get the actual absolute path of the asset through the relative path of the asset
@@ -22,4 +24,8 @@ extension RtcEngineExtension on RtcEngine {
   List<dynamic> enumerateWindows() {
     throw PlatformException(code: ErrorCode.NotSupported.toString());
   }
+}
+
+RtcEngine createAgoraRtcEngine() {
+  return impl.RtcEngineImpl.create();
 }

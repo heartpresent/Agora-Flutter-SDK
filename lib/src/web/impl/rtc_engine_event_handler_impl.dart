@@ -4,7 +4,6 @@ import 'dart:typed_data';
 import 'package:agora_rtc_engine/src/web/classes.dart';
 import 'package:agora_rtc_engine/src/web/rtc_engine_event_handler.dart';
 
-import 'package:agora_rtc_engine/src/web/rtc_engine.dart';
 import 'enum_converter.dart';
 import 'event_handler_json.dart';
 import 'package:agora_rtc_engine/src/web/enums.dart';
@@ -43,14 +42,17 @@ extension RtcEngineEventHandlerExt on RtcEngineEventHandler {
             ErrorCodeConverter.fromValue(newData[0]).e, newData[1], newData[2]);
         break;
       case 'JoinChannelSuccess':
-        onJoinChannelSuccess?.call(RtcConnection(channelId: newData[0], localUid: newData[1]), newData[2]);
+        int uid = newData[1] is int ? newData[1] : 0;
+        onJoinChannelSuccess?.call(RtcConnection(channelId: newData[0], localUid: uid), newData[2]);
         break;
       case 'RejoinChannelSuccess':
         rejoinChannelSuccess?.call(RtcConnection(channelId: newData[0], localUid: newData[1]), newData[2]);
         break;
       case 'LeaveChannel':
-        RtcStats? rtcStats;
-        onLeaveChannel?.call(const RtcConnection(channelId: "test", localUid: 123), rtcStats!);
+        RtcStats rtcStats = RtcStats.fromJson(Map<String, dynamic>.from(newData[0]));
+        String channelId = "WebIsNotSupported";
+        int localUid = 0;
+        onLeaveChannel?.call(RtcConnection(channelId: channelId, localUid: localUid), rtcStats);
         break;
       case 'LocalUserRegistered':
         localUserRegistered?.call(newData[0], newData[1]);
@@ -64,11 +66,10 @@ extension RtcEngineEventHandlerExt on RtcEngineEventHandler {
             ClientRoleConverter.fromValue(newData[1]).e);
         break;
       case 'UserJoined':
-        userJoined?.call(newData[0], newData[1]);
+        onUserJoined?.call(RtcConnection(channelId: newData[0].toString(), localUid: newData[1]), 1234, 1234);
         break;
       case 'UserOffline':
-        userOffline?.call(
-            newData[0], UserOfflineReasonConverter.fromValue(newData[1]).e);
+        onUserOffline?.call(RtcConnection(channelId: newData[0].toString(), localUid: newData[1]), 1234,UserOfflineReasonType.userOfflineQuit);
         break;
       case 'ConnectionStateChanged':
         connectionStateChanged?.call(

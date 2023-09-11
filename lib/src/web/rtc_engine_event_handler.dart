@@ -19,8 +19,8 @@ class RtcEngineEventHandler {
     this.localUserRegistered,
     this.userInfoUpdated,
     this.clientRoleChanged,
-    this.userJoined,
-    this.userOffline,
+    this.onUserJoined,
+    this.onUserOffline,
     this.connectionStateChanged,
     this.networkTypeChanged,
     this.connectionLost,
@@ -223,19 +223,9 @@ class RtcEngineEventHandler {
   /// Param [elapsed] Time delay (ms) from the local user calling joinChannel
   ///  until this callback is triggered.
   ///
-  final UidWithElapsedCallback? userJoined;
+  final void Function(RtcConnection connection, int rUid, int elapsed)? onUserJoined;
 
-  ///
-  /// Occurs when a remote user (COMMUNICATION)/ host (LIVE_BROADCASTING) leaves the channel.
-  /// There are two reasons for users to become offline: Leave the channel: When a user/host leaves the channel, the user/host sends a goodbye message. When this message is received, the SDK determines that the user/host leaves the channel.
-  ///  Drop offline: When no data packet of the user or host is received for a certain period of time (20 seconds for the communication profile, and more for the live broadcast profile), the SDK assumes that the user/host drops offline. A poor network connection may lead to false detections. It's recommended to use the Agora RTM SDK for reliable offline detection.
-  ///
-  /// Param [uid] The ID of the user who leaves the channel or goes offline.
-  ///
-  /// Param [reason] Reasons why the user goes offline: UserOfflineReason .
-  ///
-  ///
-  final UserOfflineCallback? userOffline;
+  final void Function(RtcConnection connection, int rUid, UserOfflineReasonType reason)? onUserOffline;
 
   ///
   /// Occurs when the network connection state changes.

@@ -185,11 +185,10 @@ abstract class RtcEngine {
   ///
   ///
   Future<void> joinChannel(
-      {String? token,
-      String channelId,
-      String? optionalInfo,
-      int uid,
-      ChannelMediaOptions? options});
+      {required String token,
+        required String channelId,
+        required int uid,
+        required ChannelMediaOptions options});
 
   ///
   /// Switches to a different channel, and configures whether to automatically subscribe to audio or video streams in the target channel.
@@ -2324,4 +2323,25 @@ abstract class RtcEngine {
 
   /// @nodoc
   Future<void> enableSpatialAudio(bool enabled);
+
+
+  /// Initializes the video view of a remote user.
+  ///
+  /// This method initializes the video view of a remote stream on the local device. It affects only the video view that the local user sees. Call this method to bind the remote video stream to a video view and to set the rendering and mirror modes of the video view. You need to specify the ID of the remote user in this method. If the remote user ID is unknown to the application, set it after the app receives the onUserJoined callback. To unbind the remote user from the view, set the view parameter to NULL. Once the remote user leaves the channel, the SDK unbinds the remote user. To update the rendering or mirror mode of the remote video view during a call, use the setRemoteRenderMode method. If you use the Agora recording function, the recording client joins the channel as a placeholder client, triggering the onUserJoined callback. Do not bind the placeholder client to the app view because the placeholder client does not send any video streams. If your app does not recognize the placeholder client, bind the remote user to the view when the SDK triggers the onFirstRemoteVideoDecoded callback.
+  ///
+  /// * [canvas] The remote video view and settings. See VideoCanvas.
+  ///
+  /// Returns
+  /// When the method call succeeds, there is no return value; when fails, the AgoraRtcException exception is thrown; and you need to catch the exception and handle it accordingly. < 0: Failure.
+  Future<void> setupRemoteVideo(VideoCanvas canvas);
+
+  /// Initializes the local video view.
+  ///
+  /// This method initializes the video view of a local stream on the local device. It affects only the video view that the local user sees, not the published local video stream. Call this method to bind the local video stream to a video view and to set the rendering and mirror modes of the video view. After initialization, call this method to set the local video and then join the channel. The local video still binds to the view after you leave the channel. To unbind the local video from the view, set the view parameter as NULL . You can call this method either before or after joining a channel. To update the rendering or mirror mode of the local video view during a call, use the setLocalRenderMode method.
+  ///
+  /// * [canvas] The local video view and settings. See VideoCanvas.
+  ///
+  /// Returns
+  /// When the method call succeeds, there is no return value; when fails, the AgoraRtcException exception is thrown; and you need to catch the exception and handle it accordingly. < 0: Failure.
+  Future<void> setupLocalVideo(VideoCanvas canvas);
 }

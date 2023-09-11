@@ -1,11 +1,66 @@
 import 'dart:typed_data';
 
+import 'package:agora_rtc_engine/src/web/impl/video_view_impl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:agora_rtc_engine/src/web/enums.dart';
 import 'package:agora_rtc_engine/src/web/impl/enum_converter.dart';
+import 'package:agora_rtc_engine/src/web/render/video_view_controller.dart';
+import 'package:flutter/material.dart';
 
 part 'classes.g.dart';
+
+/// Attributes of the video canvas object.
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+class VideoCanvas {
+  /// @nodoc
+  const VideoCanvas(
+      {this.view,
+        this.uid,
+        this.renderMode,
+        this.mirrorMode,
+        this.setupMode,
+        this.sourceType,
+        this.mediaPlayerId,
+        this.cropArea,
+        this.enableAlphaMask});
+
+  /// Video display window.
+  @JsonKey(name: 'view')
+  final int? view;
+
+  /// The user ID.
+  @JsonKey(name: 'uid')
+  final int? uid;
+
+  /// The rendering mode of the video. See RenderModeType.
+  @JsonKey(name: 'renderMode')
+  final RenderModeType? renderMode;
+
+  /// The mirror mode of the view. See VideoMirrorModeType.For the mirror mode of the local video view: If you use a front camera, the SDK enables the mirror mode by default; if you use a rear camera, the SDK disables the mirror mode by default.For the remote user: The mirror mode is disabled by default.
+  @JsonKey(name: 'mirrorMode')
+  final VideoMirrorModeType? mirrorMode;
+
+  /// Setting mode of the view. See VideoViewSetupMode.
+  @JsonKey(name: 'setupMode')
+  final VideoViewSetupMode? setupMode;
+
+  /// The type of the video source. See VideoSourceType.
+  @JsonKey(name: 'sourceType')
+  final VideoSourceType? sourceType;
+
+  /// The ID of the media player. You can get the Device ID by calling getMediaPlayerId.
+  @JsonKey(name: 'mediaPlayerId')
+  final int? mediaPlayerId;
+
+  /// (Optional) Display area of the video frame, see Rectangle. width and height represent the video pixel width and height of the area. The default value is null (width or height is 0), which means that the actual resolution of the video frame is displayed.
+  @JsonKey(name: 'cropArea')
+  final Rectangle? cropArea;
+
+  /// (Optional) Whether the receiver enables alpha mask rendering:true: The receiver enables alpha mask rendering.false: (default) The receiver disables alpha mask rendering.Alpha mask rendering can create images with transparent effects and extract portraits from videos. When used in combination with other methods, you can implement effects such as picture-in-picture and watermarking.This property applies to macOS only.The receiver can render alpha channel information only when the sender enables alpha transmission.To enable alpha transmission, .
+  @JsonKey(name: 'enableAlphaMask')
+  final bool? enableAlphaMask;
+}
 
 /// Contains connection information.
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
@@ -27,25 +82,6 @@ class RtcConnection {
 
   /// @nodoc
   Map<String, dynamic> toJson() => _$RtcConnectionToJson(this);
-}
-RtcConnection _$RtcConnectionFromJson(Map<String, dynamic> json) =>
-    RtcConnection(
-      channelId: json['channelId'] as String?,
-      localUid: json['localUid'] as int?,
-    );
-
-Map<String, dynamic> _$RtcConnectionToJson(RtcConnection instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('channelId', instance.channelId);
-  writeNotNull('localUid', instance.localUid);
-  return val;
 }
 
 
@@ -146,7 +182,7 @@ class VideoEncoderConfiguration {
   ///
   ///
   @JsonKey(includeIfNull: false)
-  VideoFrameRate? frameRate;
+  int? frameRate;
 
   ///
   /// The minimum encoding frame rate of the video. The default value is -1.
@@ -1185,20 +1221,6 @@ class RtcStats {
   Map<String, dynamic> toJson() => _$RtcStatsToJson(this);
 }
 
-RtcEngineEventHandlerOnErrorJson _$RtcEngineEventHandlerOnErrorJsonFromJson(
-    Map<String, dynamic> json) =>
-    RtcEngineEventHandlerOnErrorJson(
-      err: $enumDecodeNullable(_$ErrorCodeTypeEnumMap, json['err']),
-      msg: json['msg'] as String?,
-    );
-
-Map<String, dynamic> _$RtcEngineEventHandlerOnErrorJsonToJson(
-    RtcEngineEventHandlerOnErrorJson instance) =>
-    <String, dynamic>{
-      'err': _$ErrorCodeTypeEnumMap[instance.err],
-      'msg': instance.msg,
-    };
-
 @JsonSerializable(explicitToJson: true)
 class RtcEngineEventHandlerOnErrorJson {
   const RtcEngineEventHandlerOnErrorJson({this.err, this.msg});
@@ -1226,74 +1248,6 @@ on RtcEngineEventHandlerOnErrorJson {
     return bufferList;
   }
 }
-
-const _$ErrorCodeTypeEnumMap = {
-  ErrorCodeType.errOk: 0,
-  ErrorCodeType.errFailed: 1,
-  ErrorCodeType.errInvalidArgument: 2,
-  ErrorCodeType.errNotReady: 3,
-  ErrorCodeType.errNotSupported: 4,
-  ErrorCodeType.errRefused: 5,
-  ErrorCodeType.errBufferTooSmall: 6,
-  ErrorCodeType.errNotInitialized: 7,
-  ErrorCodeType.errInvalidState: 8,
-  ErrorCodeType.errNoPermission: 9,
-  ErrorCodeType.errTimedout: 10,
-  ErrorCodeType.errCanceled: 11,
-  ErrorCodeType.errTooOften: 12,
-  ErrorCodeType.errBindSocket: 13,
-  ErrorCodeType.errNetDown: 14,
-  ErrorCodeType.errJoinChannelRejected: 17,
-  ErrorCodeType.errLeaveChannelRejected: 18,
-  ErrorCodeType.errAlreadyInUse: 19,
-  ErrorCodeType.errAborted: 20,
-  ErrorCodeType.errInitNetEngine: 21,
-  ErrorCodeType.errResourceLimited: 22,
-  ErrorCodeType.errInvalidAppId: 101,
-  ErrorCodeType.errInvalidChannelName: 102,
-  ErrorCodeType.errNoServerResources: 103,
-  ErrorCodeType.errTokenExpired: 109,
-  ErrorCodeType.errInvalidToken: 110,
-  ErrorCodeType.errConnectionInterrupted: 111,
-  ErrorCodeType.errConnectionLost: 112,
-  ErrorCodeType.errNotInChannel: 113,
-  ErrorCodeType.errSizeTooLarge: 114,
-  ErrorCodeType.errBitrateLimit: 115,
-  ErrorCodeType.errTooManyDataStreams: 116,
-  ErrorCodeType.errStreamMessageTimeout: 117,
-  ErrorCodeType.errSetClientRoleNotAuthorized: 119,
-  ErrorCodeType.errDecryptionFailed: 120,
-  ErrorCodeType.errInvalidUserId: 121,
-  ErrorCodeType.errClientIsBannedByServer: 123,
-  ErrorCodeType.errEncryptedStreamNotAllowedPublish: 130,
-  ErrorCodeType.errLicenseCredentialInvalid: 131,
-  ErrorCodeType.errInvalidUserAccount: 134,
-  ErrorCodeType.errModuleNotFound: 157,
-  ErrorCodeType.errCertRaw: 157,
-  ErrorCodeType.errCertJsonPart: 158,
-  ErrorCodeType.errCertJsonInval: 159,
-  ErrorCodeType.errCertJsonNomem: 160,
-  ErrorCodeType.errCertCustom: 161,
-  ErrorCodeType.errCertCredential: 162,
-  ErrorCodeType.errCertSign: 163,
-  ErrorCodeType.errCertFail: 164,
-  ErrorCodeType.errCertBuf: 165,
-  ErrorCodeType.errCertNull: 166,
-  ErrorCodeType.errCertDuedate: 167,
-  ErrorCodeType.errCertRequest: 168,
-  ErrorCodeType.errPcmsendFormat: 200,
-  ErrorCodeType.errPcmsendBufferoverflow: 201,
-  ErrorCodeType.errLoginAlreadyLogin: 428,
-  ErrorCodeType.errLoadMediaEngine: 1001,
-  ErrorCodeType.errAdmGeneralError: 1005,
-  ErrorCodeType.errAdmInitPlayout: 1008,
-  ErrorCodeType.errAdmStartPlayout: 1009,
-  ErrorCodeType.errAdmStopPlayout: 1010,
-  ErrorCodeType.errAdmInitRecording: 1011,
-  ErrorCodeType.errAdmStartRecording: 1012,
-  ErrorCodeType.errAdmStopRecording: 1013,
-  ErrorCodeType.errVdmCameraNotAuthorized: 1501,
-};
 
 ///
 /// The volume information of users.

@@ -149,10 +149,10 @@ class AudioProfileConverter extends EnumConverter<AudioProfileType, int> {
   AudioProfileConverter(AudioProfileType e) : super(e);
 
   AudioProfileConverter.fromValue(int value)
-      : super.fromValue(_$AudioProfileEnumMap, value);
+      : super.fromValue(_$AudioProfileTypeEnumMap, value);
 
   int value() {
-    return super.toValue(_$AudioProfileEnumMap);
+    return super.toValue(_$AudioProfileTypeEnumMap);
   }
 }
 
@@ -249,10 +249,10 @@ class AudioScenarioConverter extends EnumConverter<AudioScenarioType, int> {
   AudioScenarioConverter(AudioScenarioType e) : super(e);
 
   AudioScenarioConverter.fromValue(int value)
-      : super.fromValue(_$AudioScenarioEnumMap, value);
+      : super.fromValue(_$AudioScenarioTypeEnumMap, value);
 
   int value() {
-    return super.toValue(_$AudioScenarioEnumMap);
+    return super.toValue(_$AudioScenarioTypeEnumMap);
   }
 }
 
@@ -350,10 +350,10 @@ class ClientRoleConverter extends EnumConverter<ClientRoleType, int> {
   ClientRoleConverter(ClientRoleType e) : super(e);
 
   ClientRoleConverter.fromValue(int value)
-      : super.fromValue(_$ClientRoleEnumMap, value);
+      : super.fromValue(_$ClientRoleTypeEnumMap, value);
 
   int value() {
-    return super.toValue(_$ClientRoleEnumMap);
+    return super.toValue(_$ClientRoleTypeEnumMap);
   }
 }
 
